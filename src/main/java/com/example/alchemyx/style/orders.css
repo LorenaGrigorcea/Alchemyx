@@ -1,0 +1,6 @@
+.orders{
+-fx-background-image: url(orders.png);
+-fx-background-size: contain;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+-fx-background-size: 100% 100%;}

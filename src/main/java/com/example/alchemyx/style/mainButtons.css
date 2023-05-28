@@ -1,0 +1,49 @@
+.inventory{
+-fx-background-image: url(Inventory1.png);
+-fx-background-size: contain;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+-fx-background-size: 100% 100%;}
+.products{
+-fx-background-image: url(Products1.png);
+-fx-background-size: contain;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+-fx-background-size: 100% 100%;}
+.recipes{
+-fx-background-image: url(recipes1.png);
+-fx-background-size: contain;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+-fx-background-size: 100% 100%;}
+.customers{
+-fx-background-image: url(customers1.png);
+-fx-background-size: contain;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+-fx-background-size: 100% 100%;}
+.suppliers{
+-fx-background-image: url(suppliers1.png);
+-fx-background-size: contain;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+-fx-background-size: 100% 100%;}
+.orders{
+-fx-background-image: url(orders1.png);
+-fx-background-size: contain;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+-fx-background-size: 100% 100%;}
+.user{
+-fx-background-image: url(users1.png);
+-fx-background-size: contain;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+-fx-background-size: 100% 100%;}
+.home{
+-fx-background-image: url(home1.png);
+-fx-background-size: contain;
+-fx-background-repeat: no-repeat;
+-fx-background-position: center;
+-fx-background-size: 100% 100%;}
+}

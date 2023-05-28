@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" styleClass="createAccount" stylesheets="@../../../../java/com/example/alchemyx/style/createAccount.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alchemyx.CreateAccount">
+   <children>
+      <VBox layoutX="24.0" layoutY="125.0" prefHeight="432.0" prefWidth="229.0">
+         <children>
+            <Label style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 4);" text="First &amp; Last Name" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="firstLastName" prefHeight="32.0" prefWidth="221.0" promptText="First &amp; Last Name" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 4);">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 4);" text="Username" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" prefHeight="32.0" prefWidth="221.0" promptText="Username" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 4);">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 4);" text="Password" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="password" prefHeight="32.0" prefWidth="221.0" promptText="Password" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 4);">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Label prefHeight="19.0" prefWidth="229.0" text="* Password requirements : " textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="- at least 8 characters" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="- one uppercase letter" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="- one special character" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="createAccount" mnemonicParsing="false" onAction="#changeScene" prefHeight="30.0" prefWidth="150.0" text="Create Account" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="45.0" right="10.0" top="13.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToLoginA" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: white; -fx-background-radius: 505;" text="Login">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="80.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.5118483412322274" endY="1.0" startX="0.46919431279620855">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.1882352977991104" green="0.23137255012989044" blue="0.5686274766921997" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3843137323856354" green="0.19607843458652496" blue="0.6823529601097107" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+         </children></VBox>
+   </children>
+</AnchorPane>
