@@ -26,26 +26,36 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Inventory extends Dashboard implements Initializable {
+public class Inventory extends SwitchPages implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    @FXML
-    private Label userName;
-    public void displayName(String username){
-        userName.setText(username);
+
+
+    @Override
+    public void switchToHome(ActionEvent event) throws IOException {
+        super.switchToHome(event);
     }
 
-    public void switchToHome (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Alchemyx - Home");
-        stage.show();
-
-
+    @Override
+    public void switchToInventory(ActionEvent event) throws IOException {
+        super.switchToInventory(event);
     }
+
+    @Override
+    public void switchToSuppliers(ActionEvent event) throws IOException {
+        super.switchToSuppliers(event);
+    }
+
+    @Override
+    public void switchToCustomers(ActionEvent event) throws IOException {
+        super.switchToCustomers(event);
+    }
+    @Override
+    public void switchToOrders(ActionEvent event) throws IOException {
+        super.switchToOrders(event);
+    }
+
     @FXML
     private Button logOutButton;
     public void setLogOut (ActionEvent event) throws  IOException{
@@ -75,7 +85,6 @@ public class Inventory extends Dashboard implements Initializable {
         } else {
             alert.close();
         }
-
     }
 
     @FXML
@@ -152,9 +161,8 @@ public class Inventory extends Dashboard implements Initializable {
             });
             descriptionDetails.setWrapText(true);
 
-            // Populare combobox cu tipurile de iteme existente
             List<String> itemTypes = getItemTypes();
-            itemTypes.add("Add New Type"); // Adăugarea opțiunii "Add New Type"
+            itemTypes.add("Add New Type");
             itemTypeDetails.setItems(FXCollections.observableList(itemTypes));
 
             itemTypeDetails.setOnAction(event -> {
@@ -200,21 +208,32 @@ public class Inventory extends Dashboard implements Initializable {
     private Button clearDetails;
 
     @FXML
-    void addNewItem(ActionEvent event){
+    void addNewItem(ActionEvent event) {
         ProductSearch item = getItem();
         if (item != null) {
             try {
-                Connection connectionDB = DriverManager.getConnection("jdbc:mysql://localhost:3306/java","root","1234");
-                PreparedStatement preparedStatement = connectionDB.prepareStatement("INSERT INTO inventory (item_name, item_type, quantity, description) VALUES (?, ?, ?, ?)");
-                preparedStatement.setString(1, item.getItemName());
-                preparedStatement.setString(2, item.getItemType());
-                preparedStatement.setInt(3, item.getItemQuantity());
-                preparedStatement.setString(4, item.getItemDescription());
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-                connectionDB.close();
+                Connection connectionDB = DriverManager.getConnection("jdbc:mysql://localhost:3306/java", "root", "1234");
+                PreparedStatement checkStatement = connectionDB.prepareStatement("SELECT COUNT(*) FROM inventory WHERE item_name = ?");
+                checkStatement.setString(1, item.getItemName());
+                ResultSet resultSet = checkStatement.executeQuery();
+                resultSet.next();
+                int count = resultSet.getInt(1);
 
-                refreshTable();
+                if (count > 0) {
+                    showErrorAlert("The item already exists in the inventory.");
+                } else {
+                    PreparedStatement insertStatement = connectionDB.prepareStatement("INSERT INTO inventory (item_name, item_type, quantity, description) VALUES (?, ?, ?, ?)");
+                    insertStatement.setString(1, item.getItemName());
+                    insertStatement.setString(2, item.getItemType());
+                    insertStatement.setInt(3, item.getItemQuantity());
+                    insertStatement.setString(4, item.getItemDescription());
+                    insertStatement.executeUpdate();
+                    insertStatement.close();
+                    connectionDB.close();
+
+                    refreshTable();
+                    showSuccessAlert("Item added successfully.");
+                }
             } catch (SQLException e) {
                 Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, e);
                 e.printStackTrace();
@@ -222,6 +241,8 @@ public class Inventory extends Dashboard implements Initializable {
             }
         }
     }
+
+
     private void refreshTable() {
         productSearchesModule.clear();
 
@@ -314,7 +335,6 @@ public class Inventory extends Dashboard implements Initializable {
         }
         clearData();
     }
-
 
     @FXML
     void deleteItemTable(ActionEvent event){

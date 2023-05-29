@@ -1,0 +1,26 @@
+/* Add this CSS code to your external style sheet */
+.button-62 {
+  -fx-background-color: linear-gradient(to bottom right,#3A058C, #622E92);
+  -fx-border-width: 0;
+  -fx-border-radius: 12px;
+  -fx-text-fill: #FFFFFF;
+  -fx-cursor: hand;
+  -fx-font-size: 16px;
+  -fx-font-weight: 500;
+  -fx-line-spacing: 2.5;
+  -fx-padding: 0 1rem;
+  -fx-text-alignment: center;
+  -fx-text-decoration: none;
+  -fx-transition: box-shadow 0.2s ease-in-out;
+  -fx-user-select: none;
+  -fx-touch-action: manipulation;
+  -fx-white-space: nowrap;
+}
+
+.button-62:focused {
+  -fx-box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5), 0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.button-62:hover {
+  -fx-box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5), 0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}

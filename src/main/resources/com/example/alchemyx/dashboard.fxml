@@ -44,7 +44,7 @@
                      </VBox.margin>
                   </Button>
                   <Line endX="79.0" startX="-100.0" style="-fx-stroke: white;" />
-                  <Button mnemonicParsing="false" onAction="#switchToRecipes" prefHeight="44.0" prefWidth="128.0" style="-fx-background-color: transparent;" styleClass="recipes" stylesheets="@../../../../java/com/example/alchemyx/style/Recipes.css">
+                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="128.0" style="-fx-background-color: transparent;" styleClass="recipes" stylesheets="@../../../../java/com/example/alchemyx/style/Recipes.css">
                      <VBox.margin>
                         <Insets bottom="3.0" left="15.0" top="5.0" />
                      </VBox.margin>
@@ -208,7 +208,7 @@
             <Image url="@../../../../java/com/example/alchemyx/style/notification.png" />
          </image>
       </ImageView>
-      <Label fx:id="userName" layoutX="774.0" layoutY="17.0" prefHeight="30.0" prefWidth="180.0">
+      <Label fx:id="userName" layoutX="805.0" layoutY="15.0" prefHeight="30.0" prefWidth="181.0">
          <font>
             <Font size="20.0" />
          </font>
@@ -229,6 +229,6 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button layoutX="986.0" layoutY="15.0" mnemonicParsing="false" onAction="#setLogOut" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: transparent;" styleClass="logout" stylesheets="@../../../../java/com/example/alchemyx/style/logout.css" />
+      <Button fx:id="logOutButton" layoutX="986.0" layoutY="15.0" mnemonicParsing="false" onAction="#setLogOut" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: transparent;" styleClass="logout" stylesheets="@../../../../java/com/example/alchemyx/style/logout.css" />
    </children>
 </AnchorPane>

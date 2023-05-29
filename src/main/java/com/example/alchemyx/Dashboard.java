@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Optional;
 
-public class Dashboard {
+public class Dashboard extends SwitchPages {
 
 
     @FXML
@@ -26,13 +26,28 @@ public class Dashboard {
     private Scene scene;
     private Parent root;
 
-    public void switchToInventory (ActionEvent event)throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("inventory.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Alchemyx - Inventory");
-        stage.show();
+    @Override
+    public void switchToHome(ActionEvent event) throws IOException {
+        super.switchToHome(event);
+    }
+
+    @Override
+    public void switchToInventory(ActionEvent event) throws IOException {
+        super.switchToInventory(event);
+    }
+
+    @Override
+    public void switchToSuppliers(ActionEvent event) throws IOException {
+        super.switchToSuppliers(event);
+    }
+
+    @Override
+    public void switchToCustomers(ActionEvent event) throws IOException {
+        super.switchToCustomers(event);
+    }
+    @Override
+    public void switchToOrders(ActionEvent event) throws IOException {
+        super.switchToOrders(event);
     }
 
     @FXML
@@ -65,17 +80,6 @@ public class Dashboard {
         } else {
             alert.close();
         }
-    }
-
-    public void switchToProducts(ActionEvent event)throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("products.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Alchemyx - Products");
-        stage.show();
-
-
     }
 
     @FXML
@@ -125,7 +129,6 @@ public class Dashboard {
         try (Connection connectionDB = DriverManager.getConnection("jdbc:mysql://localhost:3306/java", "root", "1234");
              Statement statement = connectionDB.createStatement()) {
 
-            // Retrieve data from the sales_overview table
             String salesQuery = "SELECT * FROM sales_overview";
             ResultSet salesResult = statement.executeQuery(salesQuery);
 
@@ -135,17 +138,15 @@ public class Dashboard {
                 double costValue = salesResult.getDouble("cost");
                 double profitValue = salesResult.getDouble("profit");
 
-                // Set the label values
+
                 total_seals.setText(String.valueOf(totalSales));
                 revenue.setText(String.valueOf(revenueValue));
                 cost.setText(String.valueOf(costValue));
                 profit.setText(String.valueOf(profitValue));
             }
 
-            // Close the sales result set
             salesResult.close();
 
-            // Retrieve data from the inventory_summary table
             String inventoryQuery = "SELECT * FROM inventory_summary";
             ResultSet inventoryResult = statement.executeQuery(inventoryQuery);
 
@@ -153,15 +154,12 @@ public class Dashboard {
                 int quantityInHand = inventoryResult.getInt("quantity_in_hand");
                 int willBeReceived = inventoryResult.getInt("will_be_received");
 
-                // Set the label values
                 quantity_in_hand.setText(String.valueOf(quantityInHand));
                 will_be_received.setText(String.valueOf(willBeReceived));
             }
 
-            // Close the inventory result set
             inventoryResult.close();
 
-            // Retrieve data from the products_details table
             String productsQuery = "SELECT * FROM products_details";
             ResultSet productsResult = statement.executeQuery(productsQuery);
 
@@ -170,16 +168,13 @@ public class Dashboard {
                 int itemGroup = productsResult.getInt("item_group");
                 int noOfItems = productsResult.getInt("no_of_items");
 
-                // Set the label values
                 low_stock.setText(String.valueOf(lowStock));
                 item_group.setText(String.valueOf(itemGroup));
                 no_of_items.setText(String.valueOf(noOfItems));
             }
 
-            // Close the products result set
             productsResult.close();
 
-            // Retrieve data from the purchase_overview table
             String purchaseQuery = "SELECT * FROM purchase_overview";
             ResultSet purchaseResult = statement.executeQuery(purchaseQuery);
 
@@ -189,7 +184,6 @@ public class Dashboard {
                 int noOfPurchases = purchaseResult.getInt("no_of_purchases");
                 double costPurchaseValue = purchaseResult.getDouble("cost");
 
-                // Set the label values
                 cancel_orders.setText(String.valueOf(cancelOrders));
                 returns.setText(String.valueOf(returnsValue));
                 no_of_purchases.setText(String.valueOf(noOfPurchases));
@@ -197,7 +191,6 @@ public class Dashboard {
             }
 
 
-            // Close the purchase result set
             purchaseResult.close();
 
             String customersCountQuery = "SELECT COUNT(*) AS total_customers FROM customers";
@@ -206,72 +199,30 @@ public class Dashboard {
             if (customersCountResult.next()) {
                 int totalCustomers = customersCountResult.getInt("total_customers");
 
-                // Set the label value
+
                 total_customers.setText(String.valueOf(totalCustomers));
             }
 
-            // Close the customers count result set
+
             customersCountResult.close();
 
-            // Retrieve total number of suppliers
+
             String suppliersCountQuery = "SELECT COUNT(*) AS total_suppliers FROM suppliers";
             ResultSet suppliersCountResult = statement.executeQuery(suppliersCountQuery);
 
             if (suppliersCountResult.next()) {
                 int totalSuppliers = suppliersCountResult.getInt("total_suppliers");
 
-                // Set the label value
+
                 total_suppliers.setText(String.valueOf(totalSuppliers));
             }
 
-            // Close the suppliers count result set
+
             suppliersCountResult.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle any potential errors here
+
         }
-    }
-
-
-    public void switchToRecipes(ActionEvent event)throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("recipes.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Alchemyx - Recipes");
-        stage.show();
-    }
-    public void switchToCustomers(ActionEvent event)throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("customers.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Alchemyx - Customers");
-        stage.show();
-    }
-    public void switchToSuppliers(ActionEvent event)throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("suppliers.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Alchemyx - Suppliers");
-        stage.show();
-    }
-    public void switchToOrders(ActionEvent event)throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("orders.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Alchemyx - Orders");
-        stage.show();
-    }
-    public void switchToUser(ActionEvent event)throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("user.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Alchemyx - User");
-        stage.show();
     }
 }

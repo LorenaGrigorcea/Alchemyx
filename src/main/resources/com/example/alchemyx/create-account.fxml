@@ -79,7 +79,7 @@
                   <Insets left="5.0" />
                </VBox.margin>
             </Label>
-            <Label text="- one special character" textFill="WHITE">
+            <Label prefHeight="15.0" prefWidth="173.0" text="- one special character &amp; one number" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>

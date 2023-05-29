@@ -133,6 +133,7 @@ public class CreateAccount {
             }
         }
     }
+
     private boolean validatePassword(String password) {
         if (password.length() < 8) {
             return false;
@@ -140,9 +141,13 @@ public class CreateAccount {
         if (!password.matches(".*[A-Z].*")) {
             return false;
         }
+        if (!password.matches(".*[0-9].*")) {
+            return false;
+        }
         if (!password.matches(".*[!@#$%^&*()].*")) {
             return false;
         }
         return true;
     }
+
 }

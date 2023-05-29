@@ -12,11 +12,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../../../java/com/example/alchemyx/style/rectangle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alchemyx.Customers">
    <children>
+      <AnchorPane layoutX="181.0" layoutY="67.0" prefHeight="633.0" prefWidth="920.0" styleClass="dashboard" stylesheets="@../../../../java/com/example/alchemyx/style/dashboard.css">
+         <children>
+            <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.5592417061611374" endY="1.0" startX="0.46919431279620855">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.22745098173618317" green="0.019607843831181526" blue="0.5490196347236633" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3843137323856354" green="0.18039216101169586" blue="0.572549045085907" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+         </children>
+      </AnchorPane>
       <Pane prefHeight="643.0" prefWidth="181.0" style="-fx-background-color: linear-gradient(to bottom, #303B91 0%, #622E92 100%);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox prefHeight="643.0" prefWidth="181.0">
@@ -30,9 +59,9 @@
                      </VBox.margin>
                   </ImageView>
                   <Line endX="79.0" startX="-100.0" style="-fx-stroke: white;" />
-                  <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="43.0" prefWidth="133.0" style="-fx-background-color: transparent;" styleClass="ButtonHome" stylesheets="@../../../../java/com/example/alchemyx/style/ButtonHome.css">
+                  <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="43.0" prefWidth="133.0" style="-fx-background-color: transparent;" styleClass="home" stylesheets="@../../../../java/com/example/alchemyx/style/mainButtons.css">
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
                      </VBox.margin>
                   </Button>
                   <Line endX="79.0" startX="-100.0" style="-fx-stroke: white;" />
@@ -42,21 +71,15 @@
                      </VBox.margin>
                   </Button>
                   <Line endX="79.0" startX="-100.0" style="-fx-stroke: white;" />
-                  <Button mnemonicParsing="false" onAction="#switchToProducts" prefHeight="47.0" prefWidth="135.0" style="-fx-background-color: transparent;" styleClass="productButton" stylesheets="@../../../../java/com/example/alchemyx/style/ProductButton.css">
-                     <VBox.margin>
-                        <Insets bottom="3.0" left="10.0" top="3.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Line endX="79.0" startX="-100.0" style="-fx-stroke: white;" />
-                  <Button mnemonicParsing="false" onAction="#switchToRecipes" prefHeight="44.0" prefWidth="128.0" style="-fx-background-color: transparent;" styleClass="recipes" stylesheets="@../../../../java/com/example/alchemyx/style/Recipes.css">
+                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="128.0" style="-fx-background-color: transparent;" styleClass="recipes" stylesheets="@../../../../java/com/example/alchemyx/style/Recipes.css">
                      <VBox.margin>
                         <Insets bottom="3.0" left="15.0" top="5.0" />
                      </VBox.margin>
                   </Button>
                   <Line endX="79.0" startX="-100.0" style="-fx-stroke: white;" />
-                  <Button mnemonicParsing="false" onAction="#switchToCustomers" prefHeight="50.0" prefWidth="125.0" style="-fx-background-color: transparent;" styleClass="customers" stylesheets="@../../../../java/com/example/alchemyx/style/Customers.css">
+                  <Button mnemonicParsing="false" onAction="#switchToCustomers" prefHeight="88.0" prefWidth="162.0" style="-fx-background-color: transparent;" styleClass="customers" stylesheets="@../../../../java/com/example/alchemyx/style/mainButtons.css">
                      <VBox.margin>
-                        <Insets left="15.0" top="5.0" />
+                        <Insets bottom="-15.0" left="2.0" top="-10.0" />
                      </VBox.margin>
                   </Button>
                   <Line endX="79.0" startX="-100.0" style="-fx-stroke: white;" />
@@ -94,24 +117,19 @@
          </children>
       </Pane>
 
-      <ImageView fitHeight="78.0" fitWidth="81.0" layoutX="805.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="78.0" fitWidth="81.0" layoutX="916.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../java/com/example/alchemyx/style/profile.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="16.0" layoutX="790.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="18.0" fitWidth="16.0" layoutX="901.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../java/com/example/alchemyx/style/notification.png" />
          </image>
       </ImageView>
-      <Label layoutX="879.0" layoutY="23.0" prefHeight="21.0" prefWidth="108.0" text="Label">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <AnchorPane layoutX="448.0" layoutY="129.0" prefHeight="391.0" prefWidth="539.0">
+      <AnchorPane layoutX="448.0" layoutY="129.0" prefHeight="391.0" prefWidth="524.0">
          <children>
-            <TableView id="tblCustomers" fx:id="tblCustomers" editable="true" layoutX="7.0" layoutY="-7.0" prefHeight="398.0" prefWidth="617.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-85.0" AnchorPane.topAnchor="-7.0">
+            <TableView id="tblCustomers" fx:id="tblCustomers" editable="true" layoutX="7.0" layoutY="-7.0" prefHeight="398.0" prefWidth="617.0" style="-fx-border-color: #F3F3F3; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.2, 0, 0);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-85.0" AnchorPane.topAnchor="-7.0">
               <columns>
                   <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
                   <TableColumn fx:id="colEmail" minWidth="60.0" prefWidth="230.0" text="email" />
@@ -122,7 +140,7 @@
             </TableView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="197.0" layoutY="123.0" prefHeight="398.0" prefWidth="244.0" style="-fx-background-color: #7B68EE;">
+      <AnchorPane layoutX="197.0" layoutY="123.0" prefHeight="398.0" prefWidth="244.0" style="-fx-background-color: #7B68EE; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.2, 0, 0);">
          <children>
             <TextField fx:id="txtCity" layoutX="71.0" layoutY="164.0" promptText="City" />
             <Label layoutX="6.0" layoutY="130.0" prefHeight="17.0" prefWidth="52.0" text="Address" />
@@ -136,11 +154,12 @@
             <Label layoutX="8.0" layoutY="168.0" prefHeight="17.0" prefWidth="29.0" text="City" />
             <Label layoutX="6.0" layoutY="206.0" prefHeight="17.0" prefWidth="58.0" text="Country" />
             <TextField fx:id="txtCountry" layoutX="71.0" layoutY="202.0" promptText="Country" />
-            <Button layoutX="5.0" layoutY="277.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="25.0" prefWidth="234.0" text="Add Customer" />
-            <Button layoutX="5.0" layoutY="314.0" mnemonicParsing="false" onAction="#modifyCustomer" prefHeight="25.0" prefWidth="234.0" text="Update Customer" />
-            <Button layoutX="5.0" layoutY="351.0" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="25.0" prefWidth="234.0" text="Delete Customer" />
+            <Button layoutX="5.0" layoutY="246.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="25.0" prefWidth="234.0" stylesheets="@../../../../java/com/example/alchemyx/style/cssButtons.css" text="Add Customer" textFill="#2f1068" />
+            <Button layoutX="5.0" layoutY="299.0" mnemonicParsing="false" onAction="#modifyCustomer" prefHeight="25.0" prefWidth="234.0" stylesheets="@../../../../java/com/example/alchemyx/style/cssButtons.css" text="Update Customer" textFill="#2f1068" />
+            <Button layoutX="5.0" layoutY="351.0" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="25.0" prefWidth="234.0" stylesheets="@../../../../java/com/example/alchemyx/style/cssButtons.css" text="Delete Customer" textFill="#2f1068" />
          </children>
       </AnchorPane>
+      <Button fx:id="logOutButton" layoutX="997.0" layoutY="11.0" mnemonicParsing="false" onAction="#setLogOut" prefHeight="44.0" prefWidth="89.0" style="-fx-background-color: transparent;" styleClass="logout" stylesheets="@../../../../java/com/example/alchemyx/style/logout.css" />
    </children>
 
 </AnchorPane>

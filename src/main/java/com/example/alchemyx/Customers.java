@@ -3,6 +3,7 @@ package com.example.alchemyx;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -43,6 +44,38 @@ public class Customers implements Initializable {
     public TextField txtAddress;
     public TextField txtCity;
     public TextField txtCountry;
+
+    @FXML
+    private Button logOutButton;
+    public void setLogOut (ActionEvent event) throws  IOException{
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Log out");
+        alert.setHeaderText("Are you sure you want to log out?");
+        alert.setContentText("Click OK to log out.");
+
+        ButtonType okButton = new ButtonType("OK");
+        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(okButton, cancelButton);
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == okButton) {
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Alchemyx");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            alert.close();
+        }
+
+    }
 
 
 
@@ -282,14 +315,6 @@ public class Customers implements Initializable {
         stage.show();
     }
 
-    public void switchToRecipes(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("recipes.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Alchemyx - Recipes");
-        stage.show();
-    }
 
     public void switchToCustomers(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("customers.fxml"));
@@ -378,60 +403,4 @@ public class Customers implements Initializable {
             System.out.println("Error on Building Data");
         }
     }
-
-
-
-//    ObservableList<CustomerData> customerDataList = FXCollections.observableArrayList(
-//            new CustomerData("Cristina", "c@e.ro", "wizard street 1","Ploiesti OZ", "Magic Romania"),
-//            new CustomerData("Radu", "cr@e.ro", "wizard street 2","OZ", "Romania Magica")
-//    );
-
-//    public TableColumn<CustomerData, String> getColCountry() {
-//        return colCountry;
-//    }
-//
-//    public void setColCountry(TableColumn<CustomerData, String> colCountry) {
-//        this.colCountry = colCountry;
-//    }
-//
-//    public TableView<CustomerData> getTblCustomers() {
-//        return tblCustomers;
-//    }
-//
-//    public void setTblCustomers(TableView<CustomerData> tblCustomers) {
-//        this.tblCustomers = tblCustomers;
-//    }
-//
-//    public TableColumn<CustomerData, String> getColName() {
-//        return colName;
-//    }
-//
-//    public void setColName(TableColumn<CustomerData, String> colName) {
-//        this.colName = colName;
-//    }
-//
-//    public TableColumn<CustomerData, String> getColEmail() {
-//        return colEmail;
-//    }
-//
-//    public void setColEmail(TableColumn<CustomerData, String> colEmail) {
-//        this.colEmail = colEmail;
-//    }
-//
-//    public TableColumn<CustomerData, String> getColAddress() {
-//        return colAddress;
-//    }
-//
-//    public void setColAddress(TableColumn<CustomerData, String> colAddress) {
-//        this.colAddress = colAddress;
-//    }
-//
-//    public TableColumn<CustomerData, String> getColCity() {
-//        return colCity;
-//    }
-//
-//    public void setColCity(TableColumn<CustomerData, String> colCity) {
-//        this.colCity = colCity;
-//    }
-
 }
