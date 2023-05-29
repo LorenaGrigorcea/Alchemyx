@@ -53,6 +53,10 @@ public class Orders extends SwitchPages implements Initializable {
     public void switchToCustomers(ActionEvent event) throws IOException {
         super.switchToCustomers(event);
     }
+    @Override
+    public void switchToUser(ActionEvent event) throws IOException {
+        super.switchToUser(event);
+    }
 
 
     @FXML

@@ -222,7 +222,7 @@
                      </VBox.margin>
                   </Button>
                   <Line endX="79.0" startX="-100.0" style="-fx-stroke: white;" />
-                  <Button mnemonicParsing="false" prefHeight="79.0" prefWidth="150.0" style="-fx-background-color: transparent;" styleClass="orders">
+                  <Button mnemonicParsing="false" onAction="#switchToUser" prefHeight="79.0" prefWidth="150.0" style="-fx-background-color: transparent;" styleClass="orders">
                      <VBox.margin>
                         <Insets bottom="-15.0" top="-5.0" />
                      </VBox.margin>

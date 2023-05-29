@@ -49,6 +49,10 @@ public class Dashboard extends SwitchPages {
     public void switchToOrders(ActionEvent event) throws IOException {
         super.switchToOrders(event);
     }
+    @Override
+    public void switchToUser(ActionEvent event) throws IOException {
+        super.switchToUser(event);
+    }
 
     @FXML
     private Button logOutButton;

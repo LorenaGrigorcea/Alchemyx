@@ -55,6 +55,10 @@ public class Inventory extends SwitchPages implements Initializable {
     public void switchToOrders(ActionEvent event) throws IOException {
         super.switchToOrders(event);
     }
+    @Override
+    public void switchToUser(ActionEvent event) throws IOException {
+        super.switchToUser(event);
+    }
 
     @FXML
     private Button logOutButton;
